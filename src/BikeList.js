@@ -12,9 +12,20 @@ function BikeList() {
         })
     }, [])
 
+    function handleBuyBike(id) {
+        fetch(`http://localhost:9292/bikes/${id}`, {
+            method: "DELETE",
+        })
+        .then((r) => r.json())
+        .then(() => {
+            const updatedBikes = bikes.filter((bike) => bike.id !== id);
+            setBikes(updatedBikes)
+        })
+    }
+
    
     const bikesToDisplay = bikes.map((bike) => {
-        return <BikeItem key={bike.id} bike={bike} />
+        return <BikeItem key={bike.id} bike={bike} onBuyBike={handleBuyBike}/>
     })
 
     return (
