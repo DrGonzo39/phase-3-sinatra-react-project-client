@@ -35,7 +35,13 @@ function NavBar() {
                 }}>
                 Post Your Bike     
             </NavLink>
-
+            <NavLink to="/userlist" 
+            exact style={linkStyles}
+            activeStyle={{
+                background: "darkred",
+            }}>
+            Sellers List     
+            </NavLink>
         </div>
     )
 }

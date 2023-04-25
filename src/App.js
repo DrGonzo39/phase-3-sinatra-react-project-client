@@ -5,6 +5,7 @@ import './App.css';
 import BikeList from "./BikeList";
 import BikeForm from "./BikeForm";
 import NavBar from "./NavBar";
+import UserList from "./UserList";
 
 function App() {
   
@@ -21,6 +22,9 @@ function App() {
         </Route> 
         <Route exact path="/bikeform">
         <BikeForm/>
+        </Route>
+        <Route exact path="/userlist">
+        <UserList/>
         </Route>
       </Switch>
     </div>
