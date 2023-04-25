@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import BikeItem from "./BikeItem";
 
-function BikeList({ bikes }) {
+function BikeList() {
+    const [bikes, setBikes] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:9292/bikes")
+        .then((r) => r.json())
+        .then((data) => {
+            setBikes(data);
+        })
+    }, [])
     
 
     function handleBuyBike(id) {
@@ -15,7 +24,7 @@ function BikeList({ bikes }) {
         })
     }
 
-    function handleUpdateBike() {
+    function handleUpdateBike(id, price) {
         fetch(`http://localhost:9292/bikes/${id}`, {
             method: "PATCH",
             headers: {
