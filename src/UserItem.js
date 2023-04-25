@@ -1,25 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-function UserItem() {
-    const [users, setUsers] = useState([])
+function UserItem({ user }) {
     
-
-    useEffect(() => {
-        fetch("http://localhost:9292/users")
-        .then((r) => r.json())
-        .then((data) => {
-            setUsers(data);
-        })
-    }, [])
-
     return (
         <div>
-            {users.map((user) => {
-                <div>
-                <h1 className="user_name">{user.name}</h1>
-                <p className="user_rating">{user.rating}</p> 
-                </div>
-            })}
+            <h1 className="user_name">{user.name}</h1>
+            <p className="user_rating">{user.rating}</p> 
         </div>
     )
 }
