@@ -17,21 +17,21 @@ function NavBar() {
             <NavLink to="/" 
                 exact style={linkStyles}
                 activeStyle={{
-                    background: "darkgreen",
+                    background: "darkred",
                 }}>
                 Home
             </NavLink>
             <NavLink to="/bikelist"
                 exact style={linkStyles}
                 activeStyle={{
-                    background: "darkgreen",
+                    background: "darkred",
                 }}>
                 View Bikes    
             </NavLink>
             <NavLink to="/bikeform"
                 exact style={linkStyles}
                 activeStyle={{
-                    background: "darkgreen",
+                    background: "darkred",
                 }}>
                 Post Your Bike     
             </NavLink>
