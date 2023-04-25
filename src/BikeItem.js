@@ -4,8 +4,8 @@ function BikeItem({ bike, onBuyBike, onUpdateBike }) {
     const { id, name, brand, terrain, condition, price, image, user_id} = bike
     const [bid, setBid] = useState(price)
 
-    function handleBidChange(e) {
-        onUpdateBike(setBid(e.target.value))
+    function onUpdateBike(e) {
+        setBid(e.target.value)
     }
     
     return (
@@ -17,10 +17,10 @@ function BikeItem({ bike, onBuyBike, onUpdateBike }) {
             <p>Terrain: {terrain}</p>
             <p>Current Condition: {condition}</p>
             <form> Current Bid:
-                <input type="number" onChange={handleBidChange} value={bid} />
+                <input type="number" onChange={onUpdateBike} value={bid} />
             </form>
             <p>Seller: {user_id}</p>
-            <button onClick={() => onBuyBike}>Buy this bike!</button>
+            <button onClick={onBuyBike()}>Buy this bike!</button>
 
         </div>
     )
