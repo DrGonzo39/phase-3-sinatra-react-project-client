@@ -13,7 +13,7 @@ function UserList() {
     }, [])
 
     const usersToDisplay = users.map((user) => {
-        <UserItem key={user.id} user={user} />
+        return <UserItem key={user.id} user={user} />
     })
 
     return (
