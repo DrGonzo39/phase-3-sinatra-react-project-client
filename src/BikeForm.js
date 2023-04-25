@@ -27,6 +27,12 @@ function BikeForm({ onAddBike }) {
         })
         .then((r) => r.json())
         .then((newBike) => onAddBike(newBike))
+        setName("");
+        setBrand("");
+        setTerrain("");
+        setCondition("");
+        setPrice("");
+        setImage("");
     }
 
     function handleNameChange(e) {
@@ -37,16 +43,30 @@ function BikeForm({ onAddBike }) {
         setBrand(e.target.value)
     }
 
-    
+    function handleTerrainChange(e) {
+        setTerrain(e.target.value)
+    }
+
+    function handleConditionChange(e) {
+        setCondition(e.target.value)
+    }
+
+    function handlePriceChange(e) {
+        setPrice(e.target.value)
+    }
+
+    function handleImageChange(e) {
+        setImage(e.target.value)
+    }
 
     return (
         <form className="new_bike_form" onSubmit={handleSubmit}>
             <input type="text" onChange={handleNameChange} value={name} placeholder="Bike Name" />
             <input type="text" onChange={handleBrandChange} value={brand} placeholder="Brand"/>
-            <input type="text" onChange={handleChange} value={terrain} placeholder="Terrain"/>
-            <input type="text" onChange={handleChange} value={condition} placeholder="Current Condition"/>
-            <input type="number" onChange={handleChange} value={price} placeholder="Set Your Price"/>
-            <input type="text" onChange={handleChange} value={image} placeholder="Upload Image"/>
+            <input type="text" onChange={handleTerrainChange} value={terrain} placeholder="Terrain"/>
+            <input type="text" onChange={handleConditionChange} value={condition} placeholder="Current Condition"/>
+            <input type="number" onChange={handlePriceChange} value={price} placeholder="Set Your Price"/>
+            <input type="text" onChange={handleImageChange} value={image} placeholder="Upload Image"/>
             <button type="submit">Upload Your Bike!</button>
         </form>
     )
