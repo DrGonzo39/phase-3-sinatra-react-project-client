@@ -1,6 +1,6 @@
 import React from "react";
 
-function BikeItem({ bike, onBuyBike }) {
+function BikeItem({ bike, onBuyBike, onUpdateBike }) {
     const { name, brand, terrain, condition, price, image, user} = bike
 
     return (
@@ -10,10 +10,11 @@ function BikeItem({ bike, onBuyBike }) {
             <img className="bike_item_image" src={image} alt="thumbnail" />
             <p>Terrain: {terrain}</p>
             <p>Current Condition: {condition}</p>
-            <p>Current Bid: {price}</p>
+            <h3> Current Bid:
+                <input type="text" onChange={onUpdateBike} value={price} />
+            </h3>
             <p>Seller: {user.name}</p>
             <button onClick={() => onBuyBike}>Buy this bike!</button>
-
 
         </div>
     )

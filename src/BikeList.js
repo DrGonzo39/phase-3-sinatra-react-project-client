@@ -23,9 +23,23 @@ function BikeList() {
         })
     }
 
+    function handleUpdateBike() {
+        fetch(`http://localhost:9292/bikes/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+               price: price 
+            })
+            .then((r) => r.json())
+            .then((updatedBike) => setBikes(updatedBike))
+        })
+    };
+
    
     const bikesToDisplay = bikes.map((bike) => {
-        return <BikeItem key={bike.id} bike={bike} onBuyBike={handleBuyBike}/>
+        return <BikeItem key={bike.id} bike={bike} onBuyBike={handleBuyBike} onUpdateBike={handleUpdateBike}/>
     })
 
     return (
