@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 function BikeItem({ bike, onBuyBike, onUpdateBike }) {
     const { name, brand, terrain, condition, price, image, user} = bike
+    const [bid, setBid] = useState(price)
 
+    function handleBidChange(e) {
+        onUpdateBike(setBid(e.target.value))
+    }
+    
     return (
         <div className="bike_item">
             <h1 className="bike_header_text">{name}</h1>
@@ -10,9 +15,9 @@ function BikeItem({ bike, onBuyBike, onUpdateBike }) {
             <img className="bike_item_image" src={image} alt="thumbnail" />
             <p>Terrain: {terrain}</p>
             <p>Current Condition: {condition}</p>
-            <h3> Current Bid:
-                <input type="text" onChange={onUpdateBike} value={price} />
-            </h3>
+            <form> Current Bid:
+                <input type="number" onChange={handleBidChange} value={bid} />
+            </form>
             <p>Seller: {user.name}</p>
             <button onClick={() => onBuyBike}>Buy this bike!</button>
 

@@ -6,9 +6,8 @@ function BikeForm({ onAddBike }) {
         brand: "",
         terrain: "",
         condition: "",
-        price: "",
+        price: 0,
         image: "",
-        user_id: 0
     })
 
     function handleSubmit(e) {
@@ -34,8 +33,14 @@ function BikeForm({ onAddBike }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            
+        <form className="new_bike_form" onSubmit={handleSubmit}>
+            <input type="text" onChange={handleChange} value={formData.name} placeholder="Bike Name" />
+            <input type="text" onChange={handleChange} value={formData.brand} placeholder="Brand"/>
+            <input type="text" onChange={handleChange} value={formData.terrain} placeholder="Terrain"/>
+            <input type="text" onChange={handleChange} value={formData.condition} placeholder="Current Condition"/>
+            <input type="number" onChange={handleChange} value={formData.price} placeholder="Set Your Price"/>
+            <input type="text" onChange={handleChange} value={formData.image} placeholder="Upload Image"/>
+            <button type="submit">Upload Your Bike!</button>
         </form>
     )
 }
