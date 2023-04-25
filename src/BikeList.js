@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import BikeItem from "./BikeItem";
 
-function BikeList() {
-    const [bikes, setBikes] = useState([]);
-
-    useEffect(() => {
-        fetch("http://localhost:9292/bikes")
-        .then((r) => r.json())
-        .then((data) => {
-            setBikes(data);
-        })
-    }, [])
+function BikeList({ bikes }) {
+    
 
     function handleBuyBike(id) {
         fetch(`http://localhost:9292/bikes/${id}`, {
