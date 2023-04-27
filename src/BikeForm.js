@@ -7,6 +7,7 @@ function BikeForm({ onAddBike }) {
     const [condition, setCondition] = useState("")
     const [price, setPrice] = useState(0)
     const [image, setImage] = useState("")
+    const [user_id, setUserId] = useState(0);
 
 
     function handleSubmit(e) {
@@ -22,7 +23,8 @@ function BikeForm({ onAddBike }) {
                 terrain: terrain,
                 condition: condition,
                 price: price,
-                image: image
+                image: image,
+                user_id: user_id
             }),
         })
         .then((r) => r.json())
@@ -33,6 +35,7 @@ function BikeForm({ onAddBike }) {
         setCondition("");
         setPrice("");
         setImage("");
+        setUserId("")
     }
 
     function handleNameChange(e) {
@@ -59,6 +62,10 @@ function BikeForm({ onAddBike }) {
         setImage(e.target.value)
     }
 
+    function handleUserId(e) {
+        setUserId(e.target.value)
+    }
+
     return (
         <form className="new_bike_form" onSubmit={handleSubmit}>
             <input type="text" onChange={handleNameChange} value={name} placeholder="Bike Name" />
@@ -67,6 +74,7 @@ function BikeForm({ onAddBike }) {
             <input type="text" onChange={handleConditionChange} value={condition} placeholder="Current Condition"/>
             <input type="number" onChange={handlePriceChange} value={price} placeholder="Set Your Price"/>
             <input type="text" onChange={handleImageChange} value={image} placeholder="Upload Image"/>
+            <input type="number" onChange={handleUserId} value={user_id} placeholder="What's your user id?" />
             <button type="submit">Upload Your Bike!</button>
         </form>
     )

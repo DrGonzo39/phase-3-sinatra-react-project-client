@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import './App.css';
@@ -14,10 +14,15 @@ function App() {
         fetch("http://localhost:9292/users")
         .then((r) => r.json())
         .then((data) => {
-            setUsers(data);
+            console.log(data);
+            setUsers(data)
         })
     }, [])
-  
+
+    function handleAddBike(newBike) {
+      setUsers(...users, newBike)
+    }
+
   
   return (
     <div>
@@ -27,10 +32,10 @@ function App() {
         <Home/>
         </Route>
         <Route exact path="/bikelist">
-        <BikeList />
+        <BikeList users={users} />
         </Route> 
         <Route exact path="/bikeform">
-        <BikeForm/>
+        <BikeForm onAddBike={handleAddBike}/>
         </Route>
         <Route exact path="/userlist">
         <UserList users={users}/>
