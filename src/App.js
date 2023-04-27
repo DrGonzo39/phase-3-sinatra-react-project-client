@@ -8,6 +8,15 @@ import NavBar from "./NavBar";
 import UserList from "./UserList";
 
 function App() {
+  const [users, setUsers] = useState([])
+    
+    useEffect(() => {
+        fetch("http://localhost:9292/users")
+        .then((r) => r.json())
+        .then((data) => {
+            setUsers(data);
+        })
+    }, [])
   
   
   return (
@@ -24,7 +33,7 @@ function App() {
         <BikeForm/>
         </Route>
         <Route exact path="/userlist">
-        <UserList/>
+        <UserList users={users}/>
         </Route>
       </Switch>
     </div>

@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import BikeItem from "./BikeItem";
 
 function BikeList() {
     const [bikes, setBikes] = useState([]);
 
-    useEffect(() => {
-        fetch("http://localhost:9292/bikes")
-        .then((r) => r.json())
-        .then((data) => {
-            setBikes(data);
-        })
-    }, [])
+    // useEffect(() => {
+    //     fetch("http://localhost:9292/bikes")
+    //     .then((r) => r.json())
+    //     .then((data) => {
+    //         setBikes(data);
+    //     })
+    // }, [])
     
 
     function handleBuyBike(id) {
@@ -31,11 +31,11 @@ function BikeList() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-               price: price 
-            })
-            .then((r) => r.json())
-            .then((updatedBike) => setBikes(updatedBike))
+               price: price, 
+            }),
         })
+        .then((r) => r.json())
+        .then((updatedBike) => setBikes(updatedBike))
     };
 
    
