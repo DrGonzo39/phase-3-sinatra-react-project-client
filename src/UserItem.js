@@ -2,6 +2,31 @@ import React from "react";
 import BikeItem from "./BikeItem";
 
 function UserItem({ user }) {
+
+    // function handleBuyBike(id) {
+    //     fetch(`http://localhost:9292/bikes/${id}`, {
+    //         method: "DELETE",
+    //     })
+    //     .then((r) => r.json())
+    //     .then(() => {
+    //         const updatedBikes = users.filter((user) => user.id !== id);
+    //         setUsers(updatedBikes)
+    //     })
+    // }
+
+    // function handleUpdateBike(id, price) {
+    //     fetch(`http://localhost:9292/bikes/${id}`, {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //            price: price, 
+    //         }),
+    //     })
+    //     .then((r) => r.json())
+    //     .then((updatedBike) => setUsers(updatedBike))
+    // };
     
     return (
         <div>
@@ -10,7 +35,11 @@ function UserItem({ user }) {
             <p className="user_rating">{user.rating}</p>
             <ul>
                 {user.bikes.map((bike) => {
-                    return <BikeItem key={bike.id} bike={bike}/>
+                    return <BikeItem 
+                            key={bike.id} 
+                            bike={bike}
+                            onBuyBike={handleBuyBike}
+                            />
                 })}
             </ul> 
         </div>

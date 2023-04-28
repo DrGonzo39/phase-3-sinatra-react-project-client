@@ -21,13 +21,6 @@ function NavBar() {
                 }}>
                 Home
             </NavLink>
-            <NavLink to="/bikelist"
-                exact style={linkStyles}
-                activeStyle={{
-                    background: "darkred",
-                }}>
-                View Bikes    
-            </NavLink>
             <NavLink to="/bikeform"
                 exact style={linkStyles}
                 activeStyle={{
