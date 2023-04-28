@@ -1,7 +1,7 @@
 import React from "react";
 import BikeItem from "./BikeItem";
 
-function UserItem({ user, onPurchase }) {
+function UserItem({ user, onPurchase, onUpdateBid }) {
 
     function handleBuyBike(id) {
         fetch(`http://localhost:9292/bikes/${id}`, {
@@ -10,7 +10,10 @@ function UserItem({ user, onPurchase }) {
         onPurchase(id)
     }
 
-    
+    function handleUpdateBid(updatedBike) {
+        onUpdateBid(updatedBike);
+    }
+
     return (
         <div>
             <h1 className="user_name">{user.name}</h1>
@@ -22,6 +25,7 @@ function UserItem({ user, onPurchase }) {
                             key={bike.id} 
                             bike={bike}
                             onBuyBike={handleBuyBike}
+                            onSetBid={handleUpdateBid}
                             />
                 })}
             </ul> 

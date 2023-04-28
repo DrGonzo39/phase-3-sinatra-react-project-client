@@ -27,6 +27,17 @@ function App() {
         setUsers(updatedBikes)
     }
 
+    function handleNewBid(updatedUser) {
+      const updatedUsers = users.map((user) => {
+        if (user.id === updatedUser.id) {
+          return updatedUser;
+        } else {
+          return user;
+        }
+      });
+      setUsers(updatedUsers);
+    }
+
   
   return (
     <div>
@@ -39,7 +50,7 @@ function App() {
         <BikeForm onAddBike={handleAddBike}/>
         </Route>
         <Route exact path="/userlist">
-        <UserList users={users} onPurchase={handleBikePurchase}/>
+        <UserList users={users} onPurchase={handleBikePurchase} onUpdateBid={handleNewBid}/>
         </Route>
       </Switch>
     </div>
