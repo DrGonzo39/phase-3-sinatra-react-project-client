@@ -1,18 +1,11 @@
 import React from "react";
 import BikeItem from "./BikeItem";
 
-function UserItem({ user }) {
+function UserItem({ user, onPurchase }) {
 
-    // function handleBuyBike(id) {
-    //     fetch(`http://localhost:9292/bikes/${id}`, {
-    //         method: "DELETE",
-    //     })
-    //     .then((r) => r.json())
-    //     .then(() => {
-    //         const updatedBikes = users.filter((user) => user.id !== id);
-    //         setUsers(updatedBikes)
-    //     })
-    // }
+    function handleBuyBike(id) {
+        onPurchase(id)
+    }
 
     // function handleUpdateBike(id, price) {
     //     fetch(`http://localhost:9292/bikes/${id}`, {
