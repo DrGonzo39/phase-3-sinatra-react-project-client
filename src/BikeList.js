@@ -1,8 +1,9 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import BikeItem from "./BikeItem";
 
 function BikeList({ users, setUsers }) {
-    const [bikes, setBikes] = useState([]);
+    const [bikes, setBikes] = useState([])
+   
 
     useEffect(() => {
         fetch("http://localhost:9292/bikes")
@@ -35,8 +36,9 @@ function BikeList({ users, setUsers }) {
             }),
         })
         .then((r) => r.json())
-        .then((updatedBike) => setBikes(updatedBike))
+        .then((updatedBike) => setUsers(updatedBike))
     };
+
 
    
     const bikesToDisplay = bikes.map((bike) => {
