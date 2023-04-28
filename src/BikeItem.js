@@ -3,7 +3,7 @@ import React from "react";
 function BikeItem({ bike, onBuyBike }) {
     const { id, name, brand, terrain, condition, price, image, user_id} = bike
     
-    function handleBuyClick(id) {
+    function handleBuyClick() {
         onBuyBike(id)
     }
 

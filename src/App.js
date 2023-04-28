@@ -22,6 +22,11 @@ function App() {
       setUsers(...users, newBike)
     }
 
+    function handleBikePurchase(id) {
+      const updatedBikes = users.filter((user) => user.id !== id);
+        setUsers(updatedBikes)
+    }
+
   
   return (
     <div>
@@ -34,7 +39,7 @@ function App() {
         <BikeForm onAddBike={handleAddBike}/>
         </Route>
         <Route exact path="/userlist">
-        <UserList users={users}/>
+        <UserList users={users} onPurchase={handleBikePurchase}/>
         </Route>
       </Switch>
     </div>

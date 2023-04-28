@@ -1,7 +1,7 @@
 import React from "react";
 import UserItem from "./UserItem";
 
-function UserList({ users }) {
+function UserList({ users, onPurchase }) {
     
      // function handlePurchase(id) {
     //     fetch(`http://localhost:9292/bikes/${id}`, {
@@ -10,7 +10,7 @@ function UserList({ users }) {
     //     .then((r) => r.json())
     //     .then(() => {
     //         const updatedBikes = users.filter((user) => user.id !== id);
-    //         setUsers(updatedBikes)
+    //         onBuyClick(updatedBikes)
     //     })
     // }
 
@@ -32,7 +32,7 @@ function UserList({ users }) {
         return <UserItem 
                 key={user.id} 
                 user={user} 
-                onPurchase={handlePurchase}
+                onPurchase={onPurchase}
                 />
     })
 

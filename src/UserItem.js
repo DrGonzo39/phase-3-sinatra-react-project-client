@@ -3,7 +3,10 @@ import BikeItem from "./BikeItem";
 
 function UserItem({ user, onPurchase }) {
 
-    function handleBuyBike(id) {
+    function handleBuyBike() {
+        fetch(`http://localhost:9292/bikes/${id}`, {
+            method: "DELETE",
+        });
         onPurchase(id)
     }
 
