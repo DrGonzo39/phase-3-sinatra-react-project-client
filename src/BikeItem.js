@@ -2,6 +2,20 @@ import React from "react";
 
 function BikeItem({ bike, onBuyBike }) {
     const { id, name, brand, terrain, condition, price, image, user_id} = bike
+
+    // function handleUpdateBike(id, price) {
+    //     fetch(`http://localhost:9292/bikes/${id}`, {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //            price: price, 
+    //         }),
+    //     })
+    //     .then((r) => r.json())
+    //     .then((updatedBike) => setUsers(updatedBike))
+    // };
     
     function handleBuyClick() {
         onBuyBike(id)

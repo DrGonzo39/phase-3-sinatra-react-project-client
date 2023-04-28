@@ -16,6 +16,7 @@ function UserList({ users, onPurchase }) {
     //     .then((r) => r.json())
     //     .then((updatedBike) => setUsers(updatedBike))
     // };
+   
     
     const usersToDisplay = users.map((user) => {
         return <UserItem 

@@ -10,19 +10,6 @@ function UserItem({ user, onPurchase }) {
         onPurchase(id)
     }
 
-    // function handleUpdateBike(id, price) {
-    //     fetch(`http://localhost:9292/bikes/${id}`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //            price: price, 
-    //         }),
-    //     })
-    //     .then((r) => r.json())
-    //     .then((updatedBike) => setUsers(updatedBike))
-    // };
     
     return (
         <div>
