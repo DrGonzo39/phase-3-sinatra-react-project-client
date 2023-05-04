@@ -1,15 +1,17 @@
 import React from "react";
 import UserItem from "./UserItem";
 
-function UserList({ users, onPurchase, onUpdateBid }) {
+function UserList({ users, onBikeDelete, onBikeUpdate }) {
  
     const usersToDisplay = users.map((user) => {
-        return  <UserItem 
-                 key={user.id} 
-                 user={user} 
-                 onPurchase={onPurchase}
-                 onUpdateBid={onUpdateBid}
-                />  
+        return (
+            <UserItem 
+            key={user.id} 
+            user={user} 
+            // onBikeDelete={onBikeDelete}
+            // onBikeUpdate={onBikeUpdate}
+            />  
+        )
     })
 
     return (

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-function BikeItem({ bike, onBuyBike, onSetBid }) {
+function BikeItem({ bike, onDeleteBike, onUpdateBike }) {
     const { id, name, brand, terrain, condition, price, image, user_id} = bike
     const [bid, setBid] = useState(price)
 
-    function handleBidSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault();
         fetch(`http://localhost:9292/bikes/${id}`, {
             method: "PATCH",
@@ -16,11 +16,13 @@ function BikeItem({ bike, onBuyBike, onSetBid }) {
             }),
         })
         .then((r) => r.json())
-        .then((updatedBike) => onSetBid(updatedBike));
+        .then((updatedBike) => {
+            // onUpdateBike(updatedBike)
+        });
     };
 
-    function handleBuyClick() {
-        onBuyBike(id)
+    function handleButtonClick() {
+        // onDeleteBike(id)
     }
     
     return (
@@ -31,7 +33,7 @@ function BikeItem({ bike, onBuyBike, onSetBid }) {
             <p>ID: {id}</p>
             <p>Terrain: {terrain}</p>
             <p>Current Condition: {condition}</p>
-            <form className="bid_submit_form" onSubmit={handleBidSubmit}>
+            <form className="bid_submit_form" onSubmit={handleSubmit}>
                 <input
                  type="number"
                  value={bid}
@@ -40,7 +42,7 @@ function BikeItem({ bike, onBuyBike, onSetBid }) {
                 <input type="submit" value="Submit your bid!"/>
             </form>
             <p>Seller: {user_id}</p>
-            <button onClick={handleBuyClick}>Buy this bike!</button>
+            <button onClick={handleButtonClick}>Buy this bike!</button>
         </div>
     )
 }

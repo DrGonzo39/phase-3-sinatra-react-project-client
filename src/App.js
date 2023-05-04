@@ -18,16 +18,22 @@ function App() {
         })
     }, [])
 
+    // function handleUpdateBike(updatedBike) {
+
+    // }
+
     function handleAddBike(newBike) {
-      setUsers(...users, newBike)
+      const userToUpdate = users.find((user) => user.id === newBike.user_id)
+      const updatedUser = userToUpdate.bikes.push(newBike)
+      handleUpdateUser(updatedUser);
     }
 
-    function handleBikePurchase(id) {
+    function handleBikeDelete(id) {
       const updatedBikes = users.filter((user) => user.id !== id);
         setUsers(updatedBikes)
     }
 
-    function handleNewBid(updatedUser) {
+    function handleUpdateUser(updatedUser) {
       const updatedUsers = users.map((user) => {
         if (user.id === updatedUser.id) {
           return updatedUser;
@@ -50,7 +56,8 @@ function App() {
         <BikeForm onAddBike={handleAddBike}/>
         </Route>
         <Route exact path="/userlist">
-        <UserList users={users} onPurchase={handleBikePurchase} onUpdateBid={handleNewBid}/>
+        {/* <UserList users={users} onPurchase={handleBikeDelete} onBikeUpdate={handleBikeUpdate}/>  */}
+        <UserList users={users} />
         </Route>
       </Switch>
     </div>

@@ -1,18 +1,18 @@
 import React from "react";
 import BikeItem from "./BikeItem";
 
-function UserItem({ user, onPurchase, onUpdateBid }) {
+function UserItem({ user, onBikeDelete, onBikeUpdate }) {
 
-    function handleBuyBike(id) {
+    function handleDeleteBike(id) {
         fetch(`http://localhost:9292/bikes/${id}`, {
             method: "DELETE",
         });
-        onPurchase(id)
+        // onBikeDelete(id)
     }
 
-    function handleUpdateBid(updatedBike) {
-        onUpdateBid(updatedBike);
-    }
+    // function handleUpdateBike(updatedBike) {
+    //     onBikeUpdate(updatedBike);
+    // }
 
     return (
         <div>
@@ -24,8 +24,8 @@ function UserItem({ user, onPurchase, onUpdateBid }) {
                     return <BikeItem 
                             key={bike.id} 
                             bike={bike}
-                            onBuyBike={handleBuyBike}
-                            onSetBid={handleUpdateBid}
+                            // onDeleteBike={handleDeleteBike}
+                            // onUpdateBike={handleUpdateBike}
                             />
                 })}
             </ul> 
