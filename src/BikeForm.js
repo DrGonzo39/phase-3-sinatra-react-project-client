@@ -19,7 +19,7 @@ function BikeForm({ onAddBike }) {
             },
             body: JSON.stringify({
                 name: name,
-                barnd: brand,
+                brand: brand,
                 terrain: terrain,
                 condition: condition,
                 price: price,
