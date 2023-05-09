@@ -8,10 +8,6 @@ import UserList from "./UserList";
 
 function App() {
   const [users, setUsers] = useState([])
-
-  useEffect(() => {
-    console.log(users)
-  }, [users])
     
     useEffect(() => {
         fetch("http://localhost:9292/users")
@@ -23,9 +19,7 @@ function App() {
     }, [])
 
     function handleUpdateBike(updatedBike) {
-    // find user that updatedBike belongs to and save to variable
       const userToUpdate = users.find((user) => user.id === updatedBike.user_id)
-    // iterate over that users bikes
       const updatedUser = userToUpdate.bikes.map((bike) => {
         if (bike.id === updatedBike.id) {
           return updatedBike
@@ -34,11 +28,6 @@ function App() {
         }
       });
       handleUpdateUser(updatedUser);
-      // if a bikes id === the updatedBike id
-      // return the updatedBike
-        // else
-      // return the bike
-      // invoke handleUpdateUser
     }
 
     function handleAddBike(newBike) {
@@ -77,7 +66,6 @@ function App() {
         <BikeForm onAddBike={handleAddBike}/>
         </Route>
         <Route exact path="/userlist">
-        {/* <UserList users={users} onPurchase={handleBikeDelete} onBikeUpdate={handleBikeUpdate}/>  */}
         <UserList users={users} onBikeUpdate={handleUpdateBike} onBikeDelete={handleBikeDelete} />
         </Route>
       </Switch>
