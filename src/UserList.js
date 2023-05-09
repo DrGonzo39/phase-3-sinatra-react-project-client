@@ -8,8 +8,8 @@ function UserList({ users, onBikeDelete, onBikeUpdate }) {
             <UserItem 
             key={user.id} 
             user={user} 
-            // onBikeDelete={onBikeDelete}
-            // onBikeUpdate={onBikeUpdate}
+            onBikeDelete={onBikeDelete}
+            onBikeUpdate={onBikeUpdate}
             />  
         )
     })

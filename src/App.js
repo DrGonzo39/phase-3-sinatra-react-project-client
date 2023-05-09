@@ -8,6 +8,10 @@ import UserList from "./UserList";
 
 function App() {
   const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    console.log(users)
+  }, [users])
     
     useEffect(() => {
         fetch("http://localhost:9292/users")
@@ -18,9 +22,24 @@ function App() {
         })
     }, [])
 
-    // function handleUpdateBike(updatedBike) {
-
-    // }
+    function handleUpdateBike(updatedBike) {
+    // find user that updatedBike belongs to and save to variable
+      const userToUpdate = users.find((user) => user.id === updatedBike.user_id)
+    // iterate over that users bikes
+      const updatedUser = userToUpdate.bikes.map((bike) => {
+        if (bike.id === updatedBike.id) {
+          return updatedBike
+        } else {
+          return bike;
+        }
+      });
+      handleUpdateUser(updatedUser);
+      // if a bikes id === the updatedBike id
+      // return the updatedBike
+        // else
+      // return the bike
+      // invoke handleUpdateUser
+    }
 
     function handleAddBike(newBike) {
       const userToUpdate = users.find((user) => user.id === newBike.user_id)
@@ -28,9 +47,11 @@ function App() {
       handleUpdateUser(updatedUser);
     }
 
-    function handleBikeDelete(id) {
-      const updatedBikes = users.filter((user) => user.id !== id);
-        setUsers(updatedBikes)
+    function handleBikeDelete(bike) {
+      const userToUpdate = users.find((user) => user.id === bike.user_id);
+      const updatedBikes = userToUpdate.bikes.filter((updatedBike) => updatedBike.id !== bike.id)
+      userToUpdate.bikes = updatedBikes;
+      handleUpdateUser(userToUpdate)
     }
 
     function handleUpdateUser(updatedUser) {
@@ -57,7 +78,7 @@ function App() {
         </Route>
         <Route exact path="/userlist">
         {/* <UserList users={users} onPurchase={handleBikeDelete} onBikeUpdate={handleBikeUpdate}/>  */}
-        <UserList users={users} />
+        <UserList users={users} onBikeUpdate={handleUpdateBike} onBikeDelete={handleBikeDelete} />
         </Route>
       </Switch>
     </div>

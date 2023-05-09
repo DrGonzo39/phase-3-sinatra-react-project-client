@@ -12,17 +12,17 @@ function BikeItem({ bike, onDeleteBike, onUpdateBike }) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-               price: price, 
+               price: bid, 
             }),
         })
         .then((r) => r.json())
         .then((updatedBike) => {
-            // onUpdateBike(updatedBike)
+            onUpdateBike(updatedBike)
         });
     };
 
     function handleButtonClick() {
-        // onDeleteBike(id)
+        onDeleteBike(bike)
     }
     
     return (

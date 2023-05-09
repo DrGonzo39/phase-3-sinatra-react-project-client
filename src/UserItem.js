@@ -3,16 +3,16 @@ import BikeItem from "./BikeItem";
 
 function UserItem({ user, onBikeDelete, onBikeUpdate }) {
 
-    function handleDeleteBike(id) {
-        fetch(`http://localhost:9292/bikes/${id}`, {
+    function handleDeleteBike(bike) {
+        fetch(`http://localhost:9292/bikes/${bike.id}`, {
             method: "DELETE",
         });
-        // onBikeDelete(id)
+        onBikeDelete(bike);
     }
 
-    // function handleUpdateBike(updatedBike) {
-    //     onBikeUpdate(updatedBike);
-    // }
+    function handleUpdate(updatedBike) {
+        onBikeUpdate(updatedBike);
+    }
 
     return (
         <div>
@@ -24,8 +24,8 @@ function UserItem({ user, onBikeDelete, onBikeUpdate }) {
                     return <BikeItem 
                             key={bike.id} 
                             bike={bike}
-                            // onDeleteBike={handleDeleteBike}
-                            // onUpdateBike={handleUpdateBike}
+                            onDeleteBike={handleDeleteBike}
+                            onUpdateBike={handleUpdate}
                             />
                 })}
             </ul> 
