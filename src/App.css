@@ -26,6 +26,11 @@ p.home_info {
   color: darkgreen;
 }
 
+img.bike_item_image {
+  display: block;
+  width: 50%;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
