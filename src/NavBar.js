@@ -21,6 +21,13 @@ function NavBar() {
                 }}>
                 Home
             </NavLink>
+            <NavLink to="/userform"
+            exact style={linkStyles}
+            activeStyle={{
+                background: "darkred",
+            }}>
+                Create a User Profile
+            </NavLink>
             <NavLink to="/bikeform"
                 exact style={linkStyles}
                 activeStyle={{
