@@ -26,7 +26,7 @@ function NavBar() {
             activeStyle={{
                 background: "darkred",
             }}>
-                Create a User Profile
+            Create a User Profile
             </NavLink>
             <NavLink to="/bikeform"
                 exact style={linkStyles}

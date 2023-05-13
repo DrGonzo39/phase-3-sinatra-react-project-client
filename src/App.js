@@ -5,6 +5,7 @@ import './App.css';
 import BikeForm from "./BikeForm";
 import NavBar from "./NavBar";
 import UserList from "./UserList";
+import NewUserForm from "./NewUserForm";
 
 function App() {
   const [users, setUsers] = useState([])
@@ -17,6 +18,10 @@ function App() {
             setUsers(data)
         })
     }, [])
+
+    function handleAddUser(newUser) {
+      setUsers([...users, newUser]);
+    }
 
     function handleUpdateBike(updatedBike) {
       const userToUpdate = users.find((user) => user.id === updatedBike.user_id)
@@ -61,6 +66,9 @@ function App() {
       <Switch>
         <Route exact path="/">
         <Home/>
+        </Route>
+        <Route exact path="/userform">
+          <NewUserForm onAddUser={handleAddUser}/>
         </Route>
         <Route exact path="/bikeform">
         <BikeForm onAddBike={handleAddBike}/>
