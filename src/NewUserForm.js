@@ -24,8 +24,8 @@ function NewUserForm({ onAddUser }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
-            <input type="text" value={rating} onChange={(e) => setRating(e.target.value)}/>
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="What's your user name?"/>
+            <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} placeholder="How would you rate your cycling experience?"/>
             <button type="submit">Create Your User Profile!</button>
         </form>
     )
