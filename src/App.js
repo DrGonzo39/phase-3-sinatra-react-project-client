@@ -14,8 +14,7 @@ function App() {
         fetch("http://localhost:9292/users")
         .then((r) => r.json())
         .then((data) => {
-            console.log(data);
-            setUsers(data)
+            setUsers(data);
         })
     }, [])
 

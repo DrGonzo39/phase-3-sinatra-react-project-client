@@ -39,7 +39,7 @@ function BikeItem({ bike, onDeleteBike, onUpdateBike }) {
                  value={bid}
                  onChange={(e) => setBid(e.target.value)}
                 />
-                <input type="submit" value="Submit your bid!"/>
+                <button type="submit">Submit Your Bid!</button> 
             </form>
             <p>Seller: {user_id}</p>
             <button onClick={handleButtonClick}>Buy this bike!</button>
