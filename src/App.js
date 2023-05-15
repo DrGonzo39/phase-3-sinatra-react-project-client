@@ -14,7 +14,7 @@ function App() {
         fetch("http://localhost:9292/users")
         .then((r) => r.json())
         .then((data) => {
-            setUsers(data);
+          setUsers(data);
         })
     }, [])
 
@@ -24,14 +24,14 @@ function App() {
 
     function handleUpdateBike(updatedBike) {
       const userToUpdate = users.find((user) => user.id === updatedBike.user_id)
-      const updatedUser = userToUpdate.bikes.map((bike) => {
+      const updatedUsersbikes = userToUpdate.bikes.map((bike) => {
         if (bike.id === updatedBike.id) {
           return updatedBike
         } else {
           return bike;
         }
       });
-      handleUpdateUser(updatedUser);
+      handleUpdateUser(updatedUsersbikes);
     }
 
     function handleAddBike(newBike) {

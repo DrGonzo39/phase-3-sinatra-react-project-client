@@ -38,43 +38,15 @@ function BikeForm({ onAddBike }) {
         setUserId("")
     }
 
-    function handleNameChange(e) {
-        setName(e.target.value) 
-    }
-
-    function handleBrandChange(e) {
-        setBrand(e.target.value)
-    }
-
-    function handleTerrainChange(e) {
-        setTerrain(e.target.value)
-    }
-
-    function handleConditionChange(e) {
-        setCondition(e.target.value)
-    }
-
-    function handlePriceChange(e) {
-        setPrice(e.target.value)
-    }
-
-    function handleImageChange(e) {
-        setImage(e.target.value)
-    }
-
-    function handleUserId(e) {
-        setUserId(e.target.value)
-    }
-
     return (
         <form className="new_bike_form" onSubmit={handleSubmit}>
-            <input type="text" onChange={handleNameChange} value={name} placeholder="Bike Name" />
-            <input type="text" onChange={handleBrandChange} value={brand} placeholder="Brand"/>
-            <input type="text" onChange={handleTerrainChange} value={terrain} placeholder="Terrain"/>
-            <input type="text" onChange={handleConditionChange} value={condition} placeholder="Current Condition"/>
-            <input type="number" onChange={handlePriceChange} value={price} placeholder="Set Your Price"/>
-            <input type="text" onChange={handleImageChange} value={image} placeholder="Upload Image"/>
-            <input type="number" onChange={handleUserId} value={user_id} placeholder="What's your user id?" />
+            <input type="text" onChange={(e) => setName(e.target.value)} value={name} placeholder="Bike Name" />
+            <input type="text" onChange={(e) => setBrand(e.target.value)} value={brand} placeholder="Brand"/>
+            <input type="text" onChange={(e) => setTerrain(e.target.value)} value={terrain} placeholder="Terrain"/>
+            <input type="text" onChange={(e) => setCondition(e.target.value)} value={condition} placeholder="Current Condition"/>
+            <input type="number" onChange={(e) => setPrice(e.target.value)} value={price} placeholder="Set Your Price"/>
+            <input type="text" onChange={(e) => setImage(e.target.value)} value={image} placeholder="Upload Image"/>
+            <input type="number" onChange={(e) => setUserId(e.target.value)} value={user_id} placeholder="What's your user id?" />
             <button type="submit">Upload Your Bike!</button>
         </form>
     )
